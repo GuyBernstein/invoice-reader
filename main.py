@@ -17,6 +17,7 @@ from invoice_reader import get_user_invoices
 app = FastAPI()
 init_db()
 
+
 @app.get("/api/my-invoices")
 def my_invoices(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     invoices = get_user_invoices(current_user.id, db)
